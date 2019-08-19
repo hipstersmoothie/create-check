@@ -42,3 +42,7 @@ async function main() {
 
 main();
 ```
+
+## Changing GitHub URL (enterprise)
+
+To get this package to work on github enterprise instances you will need to set the `GH_API` environment variable to a url pointing towards your enterprise GitHub's API.
