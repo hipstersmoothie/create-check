@@ -46,3 +46,8 @@ main();
 ## Changing GitHub URL (enterprise)
 
 To get this package to work on github enterprise instances you will need to set the `GH_API` environment variable to a url pointing towards your enterprise GitHub's API.
+
+## Related Libraries
+
+- [stylelint-formatter-github](https://github.com/hipstersmoothie/stylelint-formatter-github) - See stylelint errors and warnings directly in pull requests
+- [eslint-formatter-github](https://github.com/hipstersmoothie/eslint-formatter-github) - See eslint errors and warnings directly in pull requests
