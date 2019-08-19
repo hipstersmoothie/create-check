@@ -1,5 +1,6 @@
 import execa from 'execa';
 import envCi from 'env-ci';
+import chunk from 'lodash.chunk';
 
 import { request } from '@octokit/request';
 import { App } from '@octokit/app';
@@ -76,8 +77,9 @@ export default async function createCheck({
     (errorCount > 0 && 'Your project seems to have some errors.') ||
     (warningCount > 0 && 'Your project seems to have some warnings.') ||
     'Your project passed lint!';
+  const [first, ...rest] = chunk(annotations, 50);
 
-  await octokit.checks.create({
+  const run = await octokit.checks.create({
     owner,
     repo,
     name,
@@ -86,7 +88,22 @@ export default async function createCheck({
     output: {
       title: `${tool} Results`,
       summary,
-      annotations
+      annotations: first
     }
   });
+
+  await Promise.all(
+    rest.map(async group =>
+      octokit.checks.update({
+        owner,
+        repo,
+        check_run_id: run.data.id,
+        output: {
+          title: `${tool} Results`,
+          summary,
+          annotations: group
+        }
+      })
+    )
+  );
 }
