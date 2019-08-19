@@ -1,0 +1,76 @@
+{
+  "name": "create-check",
+  "version": "0.1.0",
+  "description": "Create a GitHub check + annotation",
+  "license": "MIT",
+  "repository": "hipstersmoothie/create-check",
+  "main": "dist/index.js",
+  "author": {
+    "name": "Andrew Lisowski",
+    "email": "lisowski54@gmail.com"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --ext .ts,.js",
+    "release": "auto shipit"
+  },
+  "keywords": [
+    "formatter",
+    "reporter",
+    "lint",
+    "validate",
+    "github",
+    "annotations",
+    "checks"
+  ],
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@octokit/app": "^4.1.0",
+    "@octokit/request": "^5.0.2",
+    "@octokit/rest": "^16.28.7",
+    "env-ci": "^4.1.1",
+    "execa": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/env-ci": "^3.1.0",
+    "@types/eslint": "^4.16.8",
+    "@types/lru-cache": "^5.1.0",
+    "@types/stylelint": "^9.10.1",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "auto": "^7.3.2",
+    "eslint": "6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-xo": "^0.26.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsdoc": "^15.8.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.3",
+    "prettier": "^1.18.2",
+    "strip-ansi": "^5.0.0",
+    "typescript": "^3.5.3"
+  },
+  "ava": {
+    "serial": true
+  },
+  "lint-staged": {
+    "*.{js,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "released"
+    ]
+  }
+}
