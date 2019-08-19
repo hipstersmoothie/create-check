@@ -22,7 +22,7 @@ async function authenticateApp(id: number, privateKey: string) {
   const { data } = await request('GET /repos/:owner/:repo/installation', {
     owner,
     repo,
-    baseUrl: process.env.GH_API,
+    baseUrl: process.env.GH_API || 'https://api.github.com',
     headers: {
       authorization: `Bearer ${jwt}`,
       accept: 'application/vnd.github.machine-man-preview+json'
