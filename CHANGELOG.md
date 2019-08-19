@@ -1,3 +1,15 @@
+# v0.3.0 (Mon Aug 19 2019)
+
+#### 🚀  Enhancement
+
+- display message if app isn't installed [#5](https://github.com/hipstersmoothie/create-check/pull/5) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.3 (Mon Aug 19 2019)
 
 #### 📝  Documentation
