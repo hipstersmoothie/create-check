@@ -87,7 +87,7 @@ export default async function createCheck({
     if (err.message === 'Bad credentials') {
       // eslint-disable-next-line no-console
       console.log(
-        `It looks like you don't have the "${appInfo.data.name}" Github App installed to your repo!`
+        `It looks like you don't have the "${appInfo.data.name}" Github App installed to your repo! ${appInfo.data.html_url}`
       );
       return;
     }
