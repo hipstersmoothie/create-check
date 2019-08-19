@@ -51,3 +51,4 @@ To get this package to work on github enterprise instances you will need to set 
 
 - [stylelint-formatter-github](https://github.com/hipstersmoothie/stylelint-formatter-github) - See stylelint errors and warnings directly in pull requests
 - [eslint-formatter-github](https://github.com/hipstersmoothie/eslint-formatter-github) - See eslint errors and warnings directly in pull requests
+- [jest-github-reporter](https://github.com/hipstersmoothie/jest-github-reporter) - Report jest test errors directly in pull requests
