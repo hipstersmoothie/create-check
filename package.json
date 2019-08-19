@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "start": "yarn build --watch",
     "lint": "eslint src --ext .ts,.js",
     "release": "auto shipit"
   },
