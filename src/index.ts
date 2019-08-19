@@ -9,29 +9,20 @@ import Octokit from '@octokit/rest';
 const { isCi, ...env } = envCi();
 const [owner = '', repo = ''] = 'slug' in env ? env.slug.split('/') : [];
 
-async function getApp(app: App) {
+async function getApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
 
   const octokit = new Octokit({
-    auth: jwt
+    auth: jwt,
+    baseUrl
   });
 
   return octokit.apps.getAuthenticated();
 }
 
-/**
- * Create an octokit by authenticating with a github app and verifying the installation
- *
- * @param {App} app - GitHub app
- */
-async function authenticateApp(app: App) {
+async function authenticateApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
-
-  const appOctokit = new Octokit({
-    auth: jwt,
-    baseUrl: process.env.GH_API || 'https://api.github.com'
-  });
-
+  const appOctokit = new Octokit({ auth: jwt, baseUrl });
   const { data } = await appOctokit.apps.getRepoInstallation({
     owner,
     repo
@@ -41,10 +32,7 @@ async function authenticateApp(app: App) {
     installationId: data.id
   });
 
-  return new Octokit({
-    auth: token,
-    previews: ['symmetra-preview']
-  });
+  return new Octokit({ auth: token, baseUrl });
 }
 
 interface CheckOptions {
@@ -78,10 +66,15 @@ export default async function createCheck({
     return;
   }
 
-  const app = new App({ id: appId, privateKey });
+  const baseUrl = process.env.GH_API || 'https://api.github.com';
+  const app = new App({
+    id: appId,
+    privateKey,
+    baseUrl
+  });
   const HEAD = await execa('git', ['rev-parse', 'HEAD']);
-  const appInfo = await getApp(app);
-  const [err, octokit] = await to(authenticateApp(app));
+  const appInfo = await getApp(app, baseUrl);
+  const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
   if (err || !octokit) {
     if (err.message === 'Bad credentials') {
@@ -106,6 +99,7 @@ export default async function createCheck({
     repo,
     name,
     head_sha: HEAD.stdout,
+    completed_at: new Date().toISOString(),
     conclusion: (errorCount > 0 && 'failure') || 'success',
     output: {
       title: `${tool} Results`,
