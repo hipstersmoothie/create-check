@@ -1,37 +1,44 @@
 import execa from 'execa';
 import envCi from 'env-ci';
 import chunk from 'lodash.chunk';
+import to from 'await-to-js';
 
-import { request } from '@octokit/request';
 import { App } from '@octokit/app';
 import Octokit from '@octokit/rest';
 
 const { isCi, ...env } = envCi();
 const [owner = '', repo = ''] = 'slug' in env ? env.slug.split('/') : [];
 
+async function getApp(app: App) {
+  const jwt = app.getSignedJsonWebToken();
+
+  const octokit = new Octokit({
+    auth: jwt
+  });
+
+  return octokit.apps.getAuthenticated();
+}
+
 /**
  * Create an octokit by authenticating with a github app and verifying the installation
  *
- * @param {number} id  - GitHub app id
- * @param {string} privateKey  - GitHub private key
+ * @param {App} app - GitHub app
  */
-async function authenticateApp(id: number, privateKey: string) {
-  const app = new App({ id, privateKey });
+async function authenticateApp(app: App) {
   const jwt = app.getSignedJsonWebToken();
 
-  const { data } = await request('GET /repos/:owner/:repo/installation', {
-    owner,
-    repo,
-    baseUrl: process.env.GH_API || 'https://api.github.com',
-    headers: {
-      authorization: `Bearer ${jwt}`,
-      accept: 'application/vnd.github.machine-man-preview+json'
-    }
+  const appOctokit = new Octokit({
+    auth: jwt,
+    baseUrl: process.env.GH_API || 'https://api.github.com'
   });
 
-  const installationId = data.id;
+  const { data } = await appOctokit.apps.getRepoInstallation({
+    owner,
+    repo
+  });
+
   const token = await app.getInstallationAccessToken({
-    installationId
+    installationId: data.id
   });
 
   return new Octokit({
@@ -71,8 +78,23 @@ export default async function createCheck({
     return;
   }
 
+  const app = new App({ id: appId, privateKey });
   const HEAD = await execa('git', ['rev-parse', 'HEAD']);
-  const octokit = await authenticateApp(appId, privateKey);
+  const appInfo = await getApp(app);
+  const [err, octokit] = await to(authenticateApp(app));
+
+  if (err || !octokit) {
+    if (err.message === 'Bad credentials') {
+      // eslint-disable-next-line no-console
+      console.log(
+        `It looks like you don't have the "${appInfo.data.name}" Github App installed to your repo!`
+      );
+      return;
+    }
+
+    throw err;
+  }
+
   const summary =
     (errorCount > 0 && 'Your project seems to have some errors.') ||
     (warningCount > 0 && 'Your project seems to have some warnings.') ||
