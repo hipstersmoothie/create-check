@@ -47,6 +47,13 @@ main();
 
 To get this package to work on github enterprise instances you will need to set the `GH_API` environment variable to a url pointing towards your enterprise GitHub's API.
 
+## Env Vars
+
+This library will detect all the data it needs from the env, but sometimes a CI doesn't expose everything. The following env vars can be set:
+
+- `REPO`
+- `OWNER`
+
 ## Related Libraries
 
 - [stylelint-formatter-github](https://github.com/hipstersmoothie/stylelint-formatter-github) - See stylelint errors and warnings directly in pull requests
