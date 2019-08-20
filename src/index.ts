@@ -7,7 +7,8 @@ import { App } from '@octokit/app';
 import Octokit from '@octokit/rest';
 
 const { isCi, ...env } = envCi();
-const [owner = '', repo = ''] = 'slug' in env ? env.slug.split('/') : [];
+const [owner = process.env.OWNER || '', repo = process.env.REPO || ''] =
+  'slug' in env ? env.slug.split('/') : [];
 
 async function getApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
@@ -72,7 +73,7 @@ export default async function createCheck({
     privateKey,
     baseUrl
   });
-  const HEAD = await execa('git', ['rev-parse', 'HEAD']);
+  const HEAD = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
   const appInfo = await getApp(app, baseUrl);
   const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
@@ -98,7 +99,7 @@ export default async function createCheck({
     owner,
     repo,
     name,
-    head_sha: HEAD.stdout,
+    head_sha: HEAD,
     completed_at: new Date().toISOString(),
     conclusion: (errorCount > 0 && 'failure') || 'success',
     output: {
