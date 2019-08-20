@@ -1,3 +1,22 @@
+# v0.3.3 (Tue Aug 20 2019)
+
+#### 🐛  Bug Fix
+
+- remove special newlines for jenkins [#12](https://github.com/hipstersmoothie/create-check/pull/12) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Dependency Updates
+
+- !rebase Update dependency eslint to v6.2.0 [#10](https://github.com/hipstersmoothie/create-check/pull/10) ([@renovate-bot](https://github.com/renovate-bot))
+- Pin dependencies [#9](https://github.com/hipstersmoothie/create-check/pull/9) ([@renovate-bot](https://github.com/renovate-bot))
+- add renovate label [#11](https://github.com/hipstersmoothie/create-check/pull/11) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.3.2 (Mon Aug 19 2019)
 
 #### 🐛  Bug Fix
