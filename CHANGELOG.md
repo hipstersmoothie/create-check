@@ -1,3 +1,21 @@
+# v0.4.0 (Wed Aug 21 2019)
+
+#### 🚀  Enhancement
+
+- check last 2 commits if HEAD happens to not be on the remote [#16](https://github.com/hipstersmoothie/create-check/pull/16) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Dependency Updates
+
+- Update dependency eslint to v6.2.1 [#14](https://github.com/hipstersmoothie/create-check/pull/14) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency eslint-plugin-jsdoc to v15.8.3 [#13](https://github.com/hipstersmoothie/create-check/pull/13) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Renovate Bot ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.3.3 (Tue Aug 20 2019)
 
 #### 🐛  Bug Fix
