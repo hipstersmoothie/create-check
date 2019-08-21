@@ -74,6 +74,7 @@ export default async function createCheck({
     baseUrl
   });
   const HEAD = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
+  const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
   const appInfo = await getApp(app, baseUrl);
   const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
@@ -94,20 +95,23 @@ export default async function createCheck({
     (warningCount > 0 && 'Your project seems to have some warnings.') ||
     'Your project passed lint!';
   const [first, ...rest] = chunk(annotations, 50);
-
-  const run = await octokit.checks.create({
+  const check: Octokit.ChecksCreateParams = {
     owner,
     repo,
     name,
-    head_sha: HEAD,
     completed_at: new Date().toISOString(),
+    head_sha: HEAD,
     conclusion: (errorCount > 0 && 'failure') || 'success',
     output: {
       title: `${tool} Results`,
       summary,
       annotations: first
     }
-  });
+  };
+
+  const run = await octokit.checks
+    .create(check)
+    .catch(() => octokit.checks.create({ ...check, head_sha: PRE_HEAD }));
 
   await Promise.all(
     rest.map(async group =>
