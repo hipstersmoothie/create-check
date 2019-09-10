@@ -67,7 +67,7 @@ export default async function createCheck({
     return;
   }
 
-  const baseUrl = process.env.GH_API || 'https://api.github.com';
+  const baseUrl = process.env.GH_API || process.env.GITHUB_URL || 'https://api.github.com';
   const app = new App({
     id: appId,
     privateKey,
