@@ -2,7 +2,7 @@
   <img  height="200"
     src="./logo.png">
   <h1>create-check</h1>
-  <p>Create a GitHub check with annotations for a PR</p>
+  <p>Create a GitHub check with annotations on a PR</p>
 </div>
 
 ## Highlights
