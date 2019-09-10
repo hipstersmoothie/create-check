@@ -1,3 +1,19 @@
+# v0.5.0 (Tue Sep 10 2019)
+
+#### 🚀  Enhancement
+
+- Support GITHUB_URL [#36](https://github.com/hipstersmoothie/create-check/pull/36) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🐛  Bug Fix
+
+- Also check GITHUB_URL [#35](https://github.com/hipstersmoothie/create-check/pull/35) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.4.1 (Tue Sep 10 2019)
 
 #### 🏠  Internal
