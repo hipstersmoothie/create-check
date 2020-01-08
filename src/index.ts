@@ -8,7 +8,7 @@ import Octokit from '@octokit/rest';
 
 const { isCi } = envCi();
 
-async function getRepositoryParameters () {
+async function getRepositoryParameters() {
   const regex = /https?:\/\/.*\/(.+)\/(.+)\.git/;
   const url = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
   const [, owner = process.env.OWNER, repo = process.env.REPO] = url.match(regex) || [];
