@@ -31,7 +31,7 @@ async function getApp(app: App, baseUrl: string) {
 async function authenticateApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
   const appOctokit = new Octokit({ auth: jwt, baseUrl });
-  const { owner, repo } = await getRepositoryParameters();
+  const { owner = '', repo = '' } = await getRepositoryParameters();
   const { data } = await appOctokit.apps.getRepoInstallation({
     owner,
     repo
@@ -103,7 +103,7 @@ export default async function createCheck({
     (warningCount > 0 && 'Your project seems to have some warnings.') ||
     'Your project passed lint!';
   const [first, ...rest] = chunk(annotations, 50);
-  const { owner, repo } = await getRepositoryParameters();
+  const { owner = '', repo = '' } = await getRepositoryParameters();
   const check: Octokit.ChecksCreateParams = {
     owner,
     repo,
