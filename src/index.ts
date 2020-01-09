@@ -6,14 +6,26 @@ import to from 'await-to-js';
 import { App } from '@octokit/app';
 import Octokit from '@octokit/rest';
 
-const { isCi } = envCi();
+const { isCi, ...env } = envCi();
 
 async function getRepositoryParameters() {
   const regex = /https?:\/\/.*\/(.+)\/(.+)\.git/;
   const url = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
-  const [, owner = process.env.OWNER, repo = process.env.REPO] = url.match(regex) || [];
+  const match = url.match(regex);
+  if (match) {
+    const [, owner = process.env.OWNER, repo = process.env.REPO] = match;
+    return { owner, repo };
+  }
+
+  if ('slug' in env) {
+    const [owner = process.env.OWNER || '', repo = process.env.REPO || ''] =
+      'slug' in env ? env.slug.split('/') : [];
+    return { owner, repo };
+  }
+
   return {
-    owner, repo
+    owner: process.env.OWNER,
+    repo: process.env.REPO
   };
 }
 
