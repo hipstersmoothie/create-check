@@ -7,8 +7,27 @@ import { App } from '@octokit/app';
 import Octokit from '@octokit/rest';
 
 const { isCi, ...env } = envCi();
-const [owner = process.env.OWNER || '', repo = process.env.REPO || ''] =
-  'slug' in env ? env.slug.split('/') : [];
+
+async function getRepositoryParameters() {
+  const regex = /https?:\/\/.*\/(.+)\/(.+)\.git/;
+  const url = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
+  const match = url.match(regex);
+  if (match) {
+    const [, owner = process.env.OWNER, repo = process.env.REPO] = match;
+    return { owner, repo };
+  }
+
+  if ('slug' in env) {
+    const [owner = process.env.OWNER || '', repo = process.env.REPO || ''] =
+      'slug' in env ? env.slug.split('/') : [];
+    return { owner, repo };
+  }
+
+  return {
+    owner: process.env.OWNER,
+    repo: process.env.REPO
+  };
+}
 
 async function getApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
@@ -24,6 +43,7 @@ async function getApp(app: App, baseUrl: string) {
 async function authenticateApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
   const appOctokit = new Octokit({ auth: jwt, baseUrl });
+  const { owner = '', repo = '' } = await getRepositoryParameters();
   const { data } = await appOctokit.apps.getRepoInstallation({
     owner,
     repo
@@ -95,6 +115,7 @@ export default async function createCheck({
     (warningCount > 0 && 'Your project seems to have some warnings.') ||
     'Your project passed lint!';
   const [first, ...rest] = chunk(annotations, 50);
+  const { owner = '', repo = '' } = await getRepositoryParameters();
   const check: Octokit.ChecksCreateParams = {
     owner,
     repo,
