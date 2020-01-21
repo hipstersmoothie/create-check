@@ -1,3 +1,32 @@
+# v0.5.1 (Tue Jan 21 2020)
+
+#### 🐛  Bug Fix
+
+- Platform independent owner and repo parsing [#70](https://github.com/hipstersmoothie/create-check/pull/70) ([@Dekkee](https://github.com/Dekkee))
+
+#### 🔩 Dependency Updates
+
+- Update dependency eslint to v6.5.1 [#48](https://github.com/hipstersmoothie/create-check/pull/48) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency lint-staged to v9.4.1 [#49](https://github.com/hipstersmoothie/create-check/pull/49) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency eslint-config-xo to v0.27.1 [#44](https://github.com/hipstersmoothie/create-check/pull/44) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency auto to v7.6.2 [#46](https://github.com/hipstersmoothie/create-check/pull/46) ([@renovate-bot](https://github.com/renovate-bot))
+- Update typescript-eslint monorepo to v2.3.2 [#47](https://github.com/hipstersmoothie/create-check/pull/47) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency husky to v3.0.7 [#45](https://github.com/hipstersmoothie/create-check/pull/45) ([@renovate-bot](https://github.com/renovate-bot))
+- Update typescript-eslint monorepo to v2.3.1 [#41](https://github.com/hipstersmoothie/create-check/pull/41) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency eslint to v6.5.0 [#39](https://github.com/hipstersmoothie/create-check/pull/39) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency lint-staged to v9.4.0 [#43](https://github.com/hipstersmoothie/create-check/pull/43) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency eslint-plugin-prettier to v3.1.1 [#42](https://github.com/hipstersmoothie/create-check/pull/42) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency eslint-plugin-jsdoc to v15.9.5 [#40](https://github.com/hipstersmoothie/create-check/pull/40) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency auto to v7.6.0 [#38](https://github.com/hipstersmoothie/create-check/pull/38) ([@renovate-bot](https://github.com/renovate-bot))
+- Update dependency typescript to v3.6.3 [#37](https://github.com/hipstersmoothie/create-check/pull/37) ([@renovate-bot](https://github.com/renovate-bot))
+
+#### Authors: 2
+
+- Alexander Tihoniuk ([@Dekkee](https://github.com/Dekkee))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.5.0 (Tue Sep 10 2019)
 
 #### 🚀  Enhancement
