@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@types/env-ci": "3.1.0",
-    "@types/eslint": "6.1.1",
+    "@types/eslint": "6.1.7",
     "@types/lodash.chunk": "4.2.6",
     "@types/lru-cache": "5.1.0",
     "@types/stylelint": "9.10.1",
@@ -45,7 +45,7 @@
     "@typescript-eslint/parser": "2.3.2",
     "auto": "7.6.2",
     "auto-config-hipstersmoothie": "1.0.4",
-    "eslint": "6.5.1",
+    "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-config-prettier": "6.3.0",
     "eslint-config-xo": "0.27.1",
