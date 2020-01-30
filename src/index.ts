@@ -71,6 +71,8 @@ interface CheckOptions {
   tool: string;
   /** The title of the check mark */
   name: string;
+  /** Github Enterprise URL */
+  githubUrl?: string;
 }
 
 /** Add a GitHub check with annotations to the HEAD sha */
@@ -81,13 +83,14 @@ export default async function createCheck({
   appId,
   privateKey,
   tool,
-  name
+  name,
+  githubUrl
 }: CheckOptions) {
   if (!isCi) {
     return;
   }
 
-  const baseUrl = process.env.GH_API || process.env.GITHUB_URL || 'https://api.github.com';
+  const baseUrl = githubUrl || process.env.GH_API || process.env.GITHUB_URL || 'https://api.github.com';
   const app = new App({
     id: appId,
     privateKey,
