@@ -1,3 +1,39 @@
+# v0.6.0 (Thu Jan 30 2020)
+
+#### 🚀  Enhancement
+
+- Allow to pass githubUrl to createCheck [#77](https://github.com/hipstersmoothie/create-check/pull/77) ([@sergeysova](https://github.com/sergeysova))
+
+#### 🔩 Dependency Updates
+
+- Update dependency auto to v9 [#71](https://github.com/hipstersmoothie/create-check/pull/71) ([@renovate-bot](https://github.com/renovate-bot) [@hipstersmoothie](https://github.com/hipstersmoothie) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency husky to v4 [#74](https://github.com/hipstersmoothie/create-check/pull/74) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency env-ci to v5 [#72](https://github.com/hipstersmoothie/create-check/pull/72) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-config-xo to v0.27.2 [#59](https://github.com/hipstersmoothie/create-check/pull/59) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency execa to v4 [#68](https://github.com/hipstersmoothie/create-check/pull/68) ([@renovate-bot](https://github.com/renovate-bot) [@hipstersmoothie](https://github.com/hipstersmoothie) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency strip-ansi to v6 [#63](https://github.com/hipstersmoothie/create-check/pull/63) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency lint-staged to v10 [#75](https://github.com/hipstersmoothie/create-check/pull/75) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-import to v2.20.0 [#65](https://github.com/hipstersmoothie/create-check/pull/65) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-prettier to v3.1.2 [#67](https://github.com/hipstersmoothie/create-check/pull/67) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency auto to v7.17.0 [#53](https://github.com/hipstersmoothie/create-check/pull/53) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency prettier to v1.19.1 [#62](https://github.com/hipstersmoothie/create-check/pull/62) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency typescript to v3.7.5 [#57](https://github.com/hipstersmoothie/create-check/pull/57) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-jsdoc to v21 [#76](https://github.com/hipstersmoothie/create-check/pull/76) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update typescript-eslint monorepo to v2.18.0 [#55](https://github.com/hipstersmoothie/create-check/pull/55) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-config-prettier to v6.10.0 [#54](https://github.com/hipstersmoothie/create-check/pull/54) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint to v6.8.0 [#52](https://github.com/hipstersmoothie/create-check/pull/52) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-jsdoc to v15.12.2 [#51](https://github.com/hipstersmoothie/create-check/pull/51) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency husky to v3.1.0 [#50](https://github.com/hipstersmoothie/create-check/pull/50) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 4
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Sergey Sova ([@sergeysova](https://github.com/sergeysova))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.5.1 (Tue Jan 21 2020)
 
 #### 🐛  Bug Fix
