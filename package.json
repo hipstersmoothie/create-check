@@ -31,7 +31,7 @@
     "@octokit/app": "^4.1.0",
     "@octokit/rest": "^16.28.7",
     "await-to-js": "^2.1.1",
-    "env-ci": "^4.1.1",
+    "env-ci": "^5.0.0",
     "execa": "^4.0.0",
     "lodash.chunk": "^4.2.0"
   },
