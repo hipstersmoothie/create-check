@@ -53,7 +53,7 @@
     "eslint-plugin-jsdoc": "21.0.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.2",
-    "husky": "3.1.0",
+    "husky": "4.2.1",
     "lint-staged": "10.0.5",
     "prettier": "1.19.1",
     "strip-ansi": "6.0.0",
