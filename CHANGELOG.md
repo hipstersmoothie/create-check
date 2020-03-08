@@ -1,3 +1,16 @@
+# v0.6.3 (Sun Mar 08 2020)
+
+#### ⚠️  Pushed to `master`
+
+- match setup ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- test no prepare ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.2 (Sun Mar 08 2020)
 
 #### ⚠️  Pushed to `master`
