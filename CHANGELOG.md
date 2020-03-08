@@ -1,3 +1,21 @@
+# v0.6.2 (Sun Mar 08 2020)
+
+#### ⚠️  Pushed to `master`
+
+- test release ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🔩 Dependency Updates
+
+- Update dependency auto to v9.18.0 [#81](https://github.com/hipstersmoothie/create-check/pull/81) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.1 (Sun Mar 08 2020)
 
 #### ⚠️  Pushed to `master`
