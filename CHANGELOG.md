@@ -1,3 +1,15 @@
+# v0.6.1 (Sun Mar 08 2020)
+
+#### ⚠️  Pushed to `master`
+
+- fix build ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.0 (Thu Jan 30 2020)
 
 #### 🚀  Enhancement
