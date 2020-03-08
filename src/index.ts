@@ -4,7 +4,7 @@ import chunk from 'lodash.chunk';
 import to from 'await-to-js';
 
 import { App } from '@octokit/app';
-import Octokit from '@octokit/rest';
+import { Octokit } from '@octokit/rest';
 
 const { isCi, ...env } = envCi();
 
@@ -102,7 +102,7 @@ export default async function createCheck({
   const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
   if (err || !octokit) {
-    if (err.message === 'Bad credentials') {
+    if (err?.message === 'Bad credentials') {
       // eslint-disable-next-line no-console
       console.log(
         `It looks like you don't have the "${appInfo.data.name}" Github App installed to your repo! ${appInfo.data.html_url}`
