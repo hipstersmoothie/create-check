@@ -28,6 +28,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
