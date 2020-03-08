@@ -29,14 +29,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Prepare repository
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git checkout ${GITHUB_REF:11} --
-          git remote rm origin
-          git remote add origin "https://x-access-token:$GH_TOKEN@github.com/hipstersmoothie/create-check.git"
-          git fetch origin --tags
-          git branch --set-upstream-to origin/${GITHUB_REF:11} ${GITHUB_REF:11}
+        run: git fetch origin --tags
 
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
