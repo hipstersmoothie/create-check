@@ -29,11 +29,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Prepare repository
-        run: |
-          git checkout ${GITHUB_REF:11} --
-          git remote rm origin
-          git remote add origin "https://x-access-token:$GH_TOKEN@github.com/hipstersmoothie/create-check.git"
-          git fetch origin --tags
+        run: git checkout ${GITHUB_REF:11}
 
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
