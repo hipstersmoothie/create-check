@@ -1,6 +1,6 @@
 {
   "name": "create-check",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "description": "Create a GitHub check + annotation.",
   "license": "MIT",
   "repository": "hipstersmoothie/create-check",
