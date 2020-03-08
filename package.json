@@ -4,11 +4,8 @@
   "description": "Create a GitHub check + annotation.",
   "license": "MIT",
   "repository": "git@github.com:hipstersmoothie/create-check.git",
+  "author": "Andrew Lisowski <lisowski54@gmail.com>",
   "main": "dist/index.js",
-  "author": {
-    "name": "Andrew Lisowski",
-    "email": "lisowski54@gmail.com"
-  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "yarn build --watch",
@@ -43,7 +40,7 @@
     "@types/stylelint": "9.10.1",
     "@typescript-eslint/eslint-plugin": "2.18.0",
     "@typescript-eslint/parser": "2.18.0",
-    "auto": "9.18.0",
+    "@auto-canary/auto": "9.18.1-canary.1036.13673.0",
     "auto-config-hipstersmoothie": "3.0.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.0.0",
@@ -70,8 +67,5 @@
   },
   "prettier": {
     "singleQuote": true
-  },
-  "auto": {
-    "extends": "hipstersmoothie"
   }
 }
