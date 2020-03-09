@@ -43,4 +43,4 @@ jobs:
           echo $GITHUB_ACTION
           yarn install --frozen-lockfile
           yarn build
-          npx auto shipit
+          npx auto shipit -vv
