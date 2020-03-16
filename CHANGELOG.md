@@ -1,3 +1,24 @@
+# v0.6.15 (Mon Mar 16 2020)
+
+#### 🐛 Bug Fix
+
+- fix build [#94](https://github.com/hipstersmoothie/create-check/pull/94) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### ⚠️  Pushed to `master`
+
+- try this 3 ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- try this 2 ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- try this ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Update push.yml ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Update package.json ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- test protected branch rules ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.14 (Sun Mar 08 2020)
 
 
