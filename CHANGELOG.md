@@ -1,3 +1,19 @@
+# v0.6.32 (Mon Mar 16 2020)
+
+#### 🐛 Bug Fix
+
+- Update dependency husky to v4.2.3 [#85](https://github.com/hipstersmoothie/create-check/pull/85) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-config-xo to v0.29.1 [#86](https://github.com/hipstersmoothie/create-check/pull/86) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-jsdoc to v22 [#90](https://github.com/hipstersmoothie/create-check/pull/90) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency typescript to v3.8.3 [#89](https://github.com/hipstersmoothie/create-check/pull/89) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.31 (Mon Mar 16 2020)
 
 #### 🐛 Bug Fix
