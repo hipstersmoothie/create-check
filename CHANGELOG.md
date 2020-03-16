@@ -1,3 +1,16 @@
+# v0.6.31 (Mon Mar 16 2020)
+
+#### 🐛 Bug Fix
+
+- Update dependency eslint-config-airbnb-base to v14.1.0 [#93](https://github.com/hipstersmoothie/create-check/pull/93) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.30 (Mon Mar 16 2020)
 
 #### 🐛 Bug Fix
