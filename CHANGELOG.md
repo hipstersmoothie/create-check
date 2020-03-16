@@ -1,3 +1,16 @@
+# v0.6.33 (Mon Mar 16 2020)
+
+#### 🐛 Bug Fix
+
+- Update typescript-eslint monorepo to v2.24.0 [#83](https://github.com/hipstersmoothie/create-check/pull/83) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.32 (Mon Mar 16 2020)
 
 #### 🐛 Bug Fix
