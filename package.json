@@ -26,7 +26,7 @@
   ],
   "dependencies": {
     "@octokit/app": "^4.1.0",
-    "@octokit/rest": "^16.28.7",
+    "@octokit/rest": "^16.43.1",
     "await-to-js": "^2.1.1",
     "env-ci": "^5.0.0",
     "execa": "^4.0.0",
