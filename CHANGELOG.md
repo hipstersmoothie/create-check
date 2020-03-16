@@ -1,3 +1,18 @@
+# v0.6.30 (Mon Mar 16 2020)
+
+#### 🐛 Bug Fix
+
+- Update dependency @types/eslint to v6.1.8 [#84](https://github.com/hipstersmoothie/create-check/pull/84) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency lint-staged to v10.0.8 [#80](https://github.com/hipstersmoothie/create-check/pull/80) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-import to v2.20.1 [#82](https://github.com/hipstersmoothie/create-check/pull/82) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.15 (Mon Mar 16 2020)
 
 #### 🐛 Bug Fix
