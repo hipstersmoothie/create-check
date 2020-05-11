@@ -1,3 +1,17 @@
+# v0.6.35 (Mon May 11 2020)
+
+#### 🐛 Bug Fix
+
+- Update dependency eslint-plugin-import to v2.20.2 [#100](https://github.com/hipstersmoothie/create-check/pull/100) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency husky to v4.2.5 [#102](https://github.com/hipstersmoothie/create-check/pull/102) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.34 (Mon May 11 2020)
 
 #### 🐛 Bug Fix
