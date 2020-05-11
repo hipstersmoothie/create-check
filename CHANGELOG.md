@@ -1,3 +1,22 @@
+# v0.6.34 (Mon May 11 2020)
+
+#### 🐛 Bug Fix
+
+- Update dependency @types/eslint to v6.8.0 [#101](https://github.com/hipstersmoothie/create-check/pull/101) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update typescript-eslint monorepo to v2.31.0 [#98](https://github.com/hipstersmoothie/create-check/pull/98) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-config-prettier to v6.11.0 [#97](https://github.com/hipstersmoothie/create-check/pull/97) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency prettier to v2 [#96](https://github.com/hipstersmoothie/create-check/pull/96) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-prettier to v3.1.3 [#104](https://github.com/hipstersmoothie/create-check/pull/104) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint to v7 [#106](https://github.com/hipstersmoothie/create-check/pull/106) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint-plugin-jsdoc to v25 [#107](https://github.com/hipstersmoothie/create-check/pull/107) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.33 (Mon Mar 16 2020)
 
 #### 🐛 Bug Fix
