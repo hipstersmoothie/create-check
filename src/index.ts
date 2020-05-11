@@ -56,15 +56,15 @@ async function authenticateApp(app: App, baseUrl: string) {
   return new Octokit({ auth: token, baseUrl });
 }
 
-type Annotations = NonNullable<
+export type Annotation = NonNullable<
   NonNullable<
     RestEndpointMethodTypes['checks']['create']['parameters']['output']
   >['annotations']
->;
+>[number];
 
 interface CheckOptions {
   /** The annotations to be posted to the GitHub check */
-  annotations: Annotations;
+  annotations: Annotation[];
   /** The number or errors generated during the run */
   errorCount: number;
   /** The number or warnings generated during the run */
