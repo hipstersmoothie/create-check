@@ -4,7 +4,7 @@ import chunk from 'lodash.chunk';
 import to from 'await-to-js';
 
 import { App } from '@octokit/app';
-import { Octokit } from '@octokit/rest';
+import { Octokit, RestEndpointMethodTypes } from '@octokit/rest';
 
 const { isCi, ...env } = envCi();
 
@@ -56,9 +56,15 @@ async function authenticateApp(app: App, baseUrl: string) {
   return new Octokit({ auth: token, baseUrl });
 }
 
+export type Annotation = NonNullable<
+  NonNullable<
+    RestEndpointMethodTypes['checks']['create']['parameters']['output']
+  >['annotations']
+>[number];
+
 interface CheckOptions {
   /** The annotations to be posted to the GitHub check */
-  annotations: Octokit.ChecksCreateParamsOutputAnnotations[];
+  annotations: Annotation[];
   /** The number or errors generated during the run */
   errorCount: number;
   /** The number or warnings generated during the run */
@@ -90,7 +96,11 @@ export default async function createCheck({
     return;
   }
 
-  const baseUrl = githubUrl || process.env.GH_API || process.env.GITHUB_URL || 'https://api.github.com';
+  const baseUrl =
+    githubUrl ||
+    process.env.GH_API ||
+    process.env.GITHUB_URL ||
+    'https://api.github.com';
   const app = new App({
     id: appId,
     privateKey,
@@ -119,7 +129,7 @@ export default async function createCheck({
     'Your project passed lint!';
   const [first, ...rest] = chunk(annotations, 50);
   const { owner = '', repo = '' } = await getRepositoryParameters();
-  const check: Octokit.ChecksCreateParams = {
+  const check: RestEndpointMethodTypes['checks']['create']['parameters'] = {
     owner,
     repo,
     name,
