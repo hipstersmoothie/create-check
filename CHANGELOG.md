@@ -1,3 +1,16 @@
+# v0.6.37 (Thu Aug 13 2020)
+
+#### 🐛 Bug Fix
+
+- Update dependency @octokit/rest to v18 [#124](https://github.com/hipstersmoothie/create-check/pull/124) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 # v0.6.36 (Mon May 11 2020)
 
 #### 🐛 Bug Fix
