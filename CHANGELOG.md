@@ -1,3 +1,15 @@
+# v0.6.38 (Tue Sep 15 2020)
+
+#### 🐛 Bug Fix
+
+- add header for checks apis [#139](https://github.com/hipstersmoothie/create-check/pull/139) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.37 (Thu Aug 13 2020)
 
 #### 🐛 Bug Fix
