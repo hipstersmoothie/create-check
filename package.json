@@ -25,14 +25,15 @@
     "dist"
   ],
   "dependencies": {
-    "@octokit/app": "^4.1.0",
-    "@octokit/rest": "^18.0.0",
+    "@octokit/app": "^4.2.1",
+    "@octokit/rest": "^18.0.6",
     "await-to-js": "^2.1.1",
     "env-ci": "^5.0.0",
     "execa": "^4.0.0",
     "lodash.chunk": "^4.2.0"
   },
   "devDependencies": {
+    "@auto-canary/auto": "9.19.3-canary.b6cdc759.0",
     "@types/env-ci": "3.1.0",
     "@types/eslint": "6.8.0",
     "@types/lodash.chunk": "4.2.6",
@@ -40,7 +41,7 @@
     "@types/stylelint": "9.10.1",
     "@typescript-eslint/eslint-plugin": "2.31.0",
     "@typescript-eslint/parser": "2.31.0",
-    "@auto-canary/auto": "9.19.3-canary.b6cdc759.0",
+    "dotenv": "^8.2.0",
     "eslint": "7.0.0",
     "eslint-config-airbnb-base": "14.1.0",
     "eslint-config-prettier": "6.11.0",
