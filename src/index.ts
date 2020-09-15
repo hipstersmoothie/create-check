@@ -53,6 +53,8 @@ async function authenticateApp(app: App, baseUrl: string) {
     repo,
   });
 
+  console.log(data)
+
   const token = await app.getInstallationAccessToken({
     installationId: data.id,
   });
@@ -113,9 +115,11 @@ export default async function createCheck({
   const HEAD = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
   const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
   const appInfo = await getApp(app, baseUrl);
+  console.log(appInfo)
   const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
   if (err || !octokit) {
+    console.log(err)
     if (err?.message === 'Bad credentials') {
       // eslint-disable-next-line no-console
       console.log(
