@@ -106,9 +106,9 @@ export default async function createCheck({
   name,
   githubUrl,
 }: CheckOptions) {
-  if (!isCi) {
-    return;
-  }
+  // if (!isCi) {
+  //   return;
+  // }
 
   const baseUrl =
     githubUrl ||
