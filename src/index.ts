@@ -25,7 +25,7 @@ async function getRepositoryParameters() {
 
   return {
     owner: process.env.OWNER,
-    repo: process.env.REPO
+    repo: process.env.REPO,
   };
 }
 
@@ -34,7 +34,7 @@ async function getApp(app: App, baseUrl: string) {
 
   const octokit = new Octokit({
     auth: jwt,
-    baseUrl
+    baseUrl,
   });
 
   return octokit.apps.getAuthenticated();
@@ -42,15 +42,19 @@ async function getApp(app: App, baseUrl: string) {
 
 async function authenticateApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
-  const appOctokit = new Octokit({ auth: jwt, baseUrl });
+  const appOctokit = new Octokit({
+    auth: jwt,
+    baseUrl,
+    previews: ['antiope-preview'],
+  });
   const { owner = '', repo = '' } = await getRepositoryParameters();
   const { data } = await appOctokit.apps.getRepoInstallation({
     owner,
-    repo
+    repo,
   });
 
   const token = await app.getInstallationAccessToken({
-    installationId: data.id
+    installationId: data.id,
   });
 
   return new Octokit({ auth: token, baseUrl });
@@ -90,7 +94,7 @@ export default async function createCheck({
   privateKey,
   tool,
   name,
-  githubUrl
+  githubUrl,
 }: CheckOptions) {
   if (!isCi) {
     return;
@@ -104,7 +108,7 @@ export default async function createCheck({
   const app = new App({
     id: appId,
     privateKey,
-    baseUrl
+    baseUrl,
   });
   const HEAD = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
   const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
@@ -139,8 +143,8 @@ export default async function createCheck({
     output: {
       title: `${tool} Results`,
       summary,
-      annotations: first
-    }
+      annotations: first,
+    },
   };
 
   const run = await octokit.checks
@@ -148,7 +152,7 @@ export default async function createCheck({
     .catch(() => octokit.checks.create({ ...check, head_sha: PRE_HEAD }));
 
   await Promise.all(
-    rest.map(async group =>
+    rest.map(async (group) =>
       octokit.checks.update({
         owner,
         repo,
@@ -156,8 +160,8 @@ export default async function createCheck({
         output: {
           title: `${tool} Results`,
           summary,
-          annotations: group
-        }
+          annotations: group,
+        },
       })
     )
   );
