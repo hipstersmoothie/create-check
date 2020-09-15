@@ -35,6 +35,7 @@ async function getApp(app: App, baseUrl: string) {
   const octokit = new Octokit({
     auth: jwt,
     baseUrl,
+    previews: ['antiope-preview'],
   });
 
   return octokit.apps.getAuthenticated();
@@ -42,24 +43,31 @@ async function getApp(app: App, baseUrl: string) {
 
 async function authenticateApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
+  console.log( { jwt })
   const appOctokit = new Octokit({
     auth: jwt,
     baseUrl,
     previews: ['antiope-preview'],
   });
   const { owner = '', repo = '' } = await getRepositoryParameters();
+  console.log( { owner, repo })
+
   const { data } = await appOctokit.apps.getRepoInstallation({
     owner,
     repo,
   });
 
+  console.log(data.id)
   console.log(data)
 
   const token = await app.getInstallationAccessToken({
     installationId: data.id,
   });
 
-  return new Octokit({ auth: token, baseUrl });
+  console.log({token})
+
+
+  return new Octokit({ auth: token, baseUrl, previews: ['antiope-preview'], });
 }
 
 export type Annotation = NonNullable<
@@ -115,11 +123,11 @@ export default async function createCheck({
   const HEAD = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
   const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
   const appInfo = await getApp(app, baseUrl);
-  console.log(appInfo)
+  console.log({appInfo})
   const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
   if (err || !octokit) {
-    console.log(err)
+    console.log({err})
     if (err?.message === 'Bad credentials') {
       // eslint-disable-next-line no-console
       console.log(
