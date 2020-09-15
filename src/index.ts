@@ -43,29 +43,21 @@ async function getApp(app: App, baseUrl: string) {
 
 async function authenticateApp(app: App, baseUrl: string) {
   const jwt = app.getSignedJsonWebToken();
-  console.log( { jwt })
   const appOctokit = new Octokit({
     auth: jwt,
     baseUrl,
     previews: ['antiope-preview'],
   });
   const { owner = '', repo = '' } = await getRepositoryParameters();
-  console.log( { owner, repo })
 
   const { data } = await appOctokit.apps.getRepoInstallation({
     owner,
     repo,
   });
 
-  console.log(data.id)
-  console.log(data)
-
   const token = await app.getInstallationAccessToken({
     installationId: data.id,
   });
-
-  console.log({token})
-
 
   return new Octokit({ auth: token, baseUrl, previews: ['antiope-preview'], });
 }
@@ -106,9 +98,9 @@ export default async function createCheck({
   name,
   githubUrl,
 }: CheckOptions) {
-  // if (!isCi) {
-  //   return;
-  // }
+  if (!isCi) {
+    return;
+  }
 
   const baseUrl =
     githubUrl ||
@@ -123,11 +115,9 @@ export default async function createCheck({
   const HEAD = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
   const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
   const appInfo = await getApp(app, baseUrl);
-  console.log({appInfo})
   const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
   if (err || !octokit) {
-    console.log({err})
     if (err?.message === 'Bad credentials') {
       // eslint-disable-next-line no-console
       console.log(
