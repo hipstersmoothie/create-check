@@ -113,7 +113,6 @@ export default async function createCheck({
     baseUrl,
   });
   const HEAD = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
-  const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
   const appInfo = await getApp(app, baseUrl);
   const [err, octokit] = await to(authenticateApp(app, baseUrl));
 
@@ -151,7 +150,13 @@ export default async function createCheck({
 
   const run = await octokit.checks
     .create(check)
-    .catch(() => octokit.checks.create({ ...check, head_sha: PRE_HEAD }));
+    .catch(async (error) => {
+      // eslint-disable-next-line no-console
+      console.log('Failed to create check with error:', error);
+      const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
+      // Retrying against parent commit
+      return octokit.checks.create({ ...check, head_sha: PRE_HEAD })
+    });
 
   await Promise.all(
     rest.map(async (group) =>
