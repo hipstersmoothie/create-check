@@ -1,3 +1,15 @@
+# v0.6.39 (Fri Oct 09 2020)
+
+#### 🐛 Bug Fix
+
+- Avoid crashing if only single commit checked out [#142](https://github.com/hipstersmoothie/create-check/pull/142) ([@osmestad](https://github.com/osmestad))
+
+#### Authors: 1
+
+- Øyvind Smestad ([@osmestad](https://github.com/osmestad))
+
+---
+
 # v0.6.38 (Tue Sep 15 2020)
 
 #### 🐛 Bug Fix
