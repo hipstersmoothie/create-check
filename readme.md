@@ -34,7 +34,7 @@ async function main() {
     errorCount,
     warningCount,
     appId: APP_ID,
-    privateKey: PRIVATE_KEY
+    privateKey: PRIVATE_KEY,
   });
 
   console.log('Created check on PR');
@@ -46,6 +46,14 @@ main();
 ## Changing GitHub URL (enterprise)
 
 To get this package to work on github enterprise instances you will need to set the `GH_API` or `GITHUB_URL` environment variable to a url pointing towards your enterprise GitHub's API.
+
+You may also need custom previews for some apis to work. Set the `GH_PREVIEWS` variable to a comma separated list of previews you'd like enabled.
+
+Example:
+
+```
+GH_PREVIEWS=eye-scream-preview,machine-man-preview
+```
 
 ## Env Vars
 
