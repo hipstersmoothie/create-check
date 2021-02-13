@@ -8,6 +8,8 @@ import { Octokit, RestEndpointMethodTypes } from '@octokit/rest';
 
 const { isCi, ...env } = envCi();
 
+const custom_previews = process.env?.GH_PREVIEWS?.split(',') ?? [];
+
 async function getRepositoryParameters() {
   const regex = /https?:\/\/.*\/(.+)\/(.+)\.git/;
   const url = (await execa('git', ['rev-parse', 'HEAD'])).stdout;
@@ -35,7 +37,7 @@ async function getApp(app: App, baseUrl: string) {
   const octokit = new Octokit({
     auth: jwt,
     baseUrl,
-    previews: ['antiope-preview'],
+    previews: ['antiope-preview', ...custom_previews],
   });
 
   return octokit.apps.getAuthenticated();
@@ -46,7 +48,7 @@ async function authenticateApp(app: App, baseUrl: string) {
   const appOctokit = new Octokit({
     auth: jwt,
     baseUrl,
-    previews: ['antiope-preview'],
+    previews: ['antiope-preview', ...custom_previews],
   });
   const { owner = '', repo = '' } = await getRepositoryParameters();
 
@@ -59,7 +61,11 @@ async function authenticateApp(app: App, baseUrl: string) {
     installationId: data.id,
   });
 
-  return new Octokit({ auth: token, baseUrl, previews: ['antiope-preview'], });
+  return new Octokit({
+    auth: token,
+    baseUrl,
+    previews: ['antiope-preview', ...custom_previews],
+  });
 }
 
 export type Annotation = NonNullable<
@@ -148,15 +154,13 @@ export default async function createCheck({
     },
   };
 
-  const run = await octokit.checks
-    .create(check)
-    .catch(async (error) => {
-      // eslint-disable-next-line no-console
-      console.log('Failed to create check with error:', error);
-      const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
-      // Retrying against parent commit
-      return octokit.checks.create({ ...check, head_sha: PRE_HEAD })
-    });
+  const run = await octokit.checks.create(check).catch(async (error) => {
+    // eslint-disable-next-line no-console
+    console.log('Failed to create check with error:', error);
+    const PRE_HEAD = (await execa('git', ['rev-parse', 'HEAD^1'])).stdout;
+    // Retrying against parent commit
+    return octokit.checks.create({ ...check, head_sha: PRE_HEAD });
+  });
 
   await Promise.all(
     rest.map(async (group) =>
