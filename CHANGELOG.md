@@ -1,3 +1,20 @@
+# v0.6.40 (Sat Feb 13 2021)
+
+#### 🐛 Bug Fix
+
+-  [#143](https://github.com/hipstersmoothie/create-check/pull/143) ([@therynamo](https://github.com/therynamo))
+
+#### ⚠️  Pushed to `master`
+
+- upgrade typescript version ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Theryn Groetken ([@therynamo](https://github.com/therynamo))
+
+---
+
 # v0.6.39 (Fri Oct 09 2020)
 
 #### 🐛 Bug Fix
